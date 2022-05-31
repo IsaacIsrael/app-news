@@ -3,4 +3,7 @@ export interface New {
     shortDescription:string,
     imageUrl: string,
     publishedDate: Date,
+    description: string,
+    author: string,
+    content: string,
 }

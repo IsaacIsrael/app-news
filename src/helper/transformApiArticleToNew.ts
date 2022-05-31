@@ -8,6 +8,9 @@ const transformApiArticleToNew = (article: ApiArticle): New => {
     shortDescription: _.truncate(article.description, {length: 80}),
     imageUrl: article.urlToImage,
     publishedDate: new Date(article.publishedAt),
+    description: article.description,
+    author: article.author,
+    content: article.content,
   })
 };
 
