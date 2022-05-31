@@ -1,6 +1,6 @@
 export const Color = {
   BACKGROUND: '#F9F8FE',
-  TEXT_DARK: '#20102F',
+  TEXT: '#20102F',
   PRIMARY: '#5EAA41',
   SECONDARY: '#B4A3EB',
   BLACK: '#000000',
