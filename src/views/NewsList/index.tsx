@@ -1,5 +1,7 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import {  StyleSheet, Text, View } from 'react-native';
+import Container from '../../components/Container';
+import SearchInput from '../../components/SearchInput';
 
 import { ViewName } from '../../constants/ViewName';
 import { FCView } from '../../types/View';
@@ -7,9 +9,9 @@ import { FCView } from '../../types/View';
 const styles = StyleSheet.create({});
 
 const NewsListView: FCView = () => (
-  <SafeAreaView>
-    <Text>App.tsx</Text>
-  </SafeAreaView>
+  <Container title="News">
+    <SearchInput placeholder='Search' />
+  </Container>
 );
 
 NewsListView.displayName = ViewName.NEW_LIST;
