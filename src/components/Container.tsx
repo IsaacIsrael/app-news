@@ -24,9 +24,10 @@ type Props = {
   style?: StyleProp<ViewStyle>;
   scroll?: boolean;
   title?: string;
+  showBackButton?: boolean;
 };
 
-const Container: React.FC<Props> = ({ children, style, title, scroll }) => {
+const Container: React.FC<Props> = ({ children, style, title, scroll, showBackButton }) => {
   const Content = scroll ? ScrollView : View;
   const contentStyle = scroll
     ? { contentContainerStyle: [styles.container, styles.scrollContainer, style] }
@@ -34,7 +35,7 @@ const Container: React.FC<Props> = ({ children, style, title, scroll }) => {
 
   return (
     <SafeAreaView style={styles.wrapper}>
-      <Header title={title} />
+      <Header title={title} showBackButton={showBackButton}/>
       <Content {...contentStyle}>{children}</Content>
     </SafeAreaView>
   );
@@ -44,6 +45,7 @@ Container.defaultProps = {
   style: {},
   scroll: false,
   title: '',
+  showBackButton: false,
 };
 
 export default Container;

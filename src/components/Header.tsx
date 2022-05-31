@@ -8,6 +8,7 @@ import Title from './texts/Title';
 import { popView } from '../navigation';
 import { NavigationContext } from 'react-native-navigation-hooks/dist';
 import Small from './texts/Small';
+import Touchable from './button/Touchable';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,9 +37,10 @@ const styles = StyleSheet.create({
 type Props = {
   title?: string;
   style?: StyleProp<ViewStyle>;
+  showBackButton?: boolean
 };
 
-const Header: React.FC<Props> = ({ title, style }) => {
+const Header: React.FC<Props> = ({ title, style, showBackButton }) => {
   const { componentId } = useContext(NavigationContext);
   const onBackClick = (): void => {
     popView(componentId || '');
@@ -46,7 +48,12 @@ const Header: React.FC<Props> = ({ title, style }) => {
 
   return (
     <Row style={[styles.container, style]}>
-      <Small />
+    {showBackButton ? (
+        <Touchable onPress={onBackClick}>
+         <Small>Back</Small>
+       </Touchable>
+    ): <View  style={styles.icon}/>}
+     
       <Title style={styles.title}>{title}</Title>
       <View style={styles.icon} />
     </Row>
@@ -56,6 +63,7 @@ const Header: React.FC<Props> = ({ title, style }) => {
 Header.defaultProps = {
   title: '',
   style: {},
+  showBackButton: false,
 };
 
 export default Header;
