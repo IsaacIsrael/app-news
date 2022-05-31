@@ -4,7 +4,7 @@ import { Color } from '../../constants/Color';
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 0.25,
     color: Color.TEXT,
   },
