@@ -14,7 +14,7 @@ const INITIAL_STATE: State = {
 
 // Create action Types and Creators
 export const { Types, Creators } = createActions<Actions, Reducers>({
-  fetchNews: ['query'],
+  fetchNews: ['query', 'categories'],
   setNews: ['news'],
 });
 

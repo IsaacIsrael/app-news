@@ -13,9 +13,9 @@ function* fetchNews(action: FetchNews) {
   try {
     Logger.info('Fetch News: Start fetching');
     yield put(requestsReducer.requestStarted(action));
-    const {query} = action;
+    const {query, categories} = action;
 
-    const news: New[] = yield call([newsServices, newsServices.fetchNews], query);
+    const news: New[] = yield call([newsServices, newsServices.fetchNews], query, categories);
 
     yield put(reducer.setNews(news));
     yield put(requestsReducer.requestSucceeded(action));

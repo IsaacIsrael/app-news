@@ -13,7 +13,8 @@ export interface Actions {
 
 export interface FetchNews extends AnyAction {
   type: Actions['FETCH_NEWS'];
-  query ?: string
+  query ?: string;
+  categories ?: string[];
 }
 
 export interface SetNews extends AnyAction {
@@ -22,6 +23,6 @@ export interface SetNews extends AnyAction {
 }
 
 export interface Reducers {
-  fetchNews(query?: string): FetchNews;
+  fetchNews(query?: string, categories?: string[]): FetchNews;
   setNews(news: New[]): SetNews;
 }

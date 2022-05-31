@@ -2,6 +2,8 @@
 import httpServices from './httpServices';
 import transformApiArticleToNew from '../helper/transformApiArticleToNew';
 import { New } from '../types/News';
+import queryParamsArray from '../helper/queryParamsArray';
+import _ from 'lodash';
 
 export interface ApiArticle{
     title: string,
@@ -20,8 +22,10 @@ interface ApiArticles {
 
 
 class NewsService {
-  async fetchNews(query: string =''): Promise<New[]> {
-    const response = await httpServices.get<ApiArticles>(`/top-headlines?country=us&q=${query}&apiKey=d80e013f3957457483a2e29defc57d4d`);
+  async fetchNews(query: string ='', categories: string[]= []): Promise<New[]> {
+    const category = queryParamsArray(categories, 'category');
+    const filterCategories =  _.isEmpty(category) ? category :  `&${category}`
+    const response = await httpServices.get<ApiArticles>(`/top-headlines?country=us&q=${query}${filterCategories}&apiKey=d80e013f3957457483a2e29defc57d4d`);
     const { data } = response;
 
     return data.articles.map(transformApiArticleToNew);
