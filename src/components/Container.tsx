@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, StyleProp, ViewStyle, View, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, StyleProp, ViewStyle, View, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Sizes } from '../constants/Sizes';
 import Header from './Header';
 

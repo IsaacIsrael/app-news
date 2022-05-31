@@ -84,6 +84,7 @@ export function registerViews(): void {
   views.forEach((view) => {
     Navigation.registerComponent(
       view.displayName as ReactText,
+      () => withProvider(view as ComponentType<NavigationComponentProps>),
       () => view as ComponentType<NavigationComponentProps>,
     );
   });
